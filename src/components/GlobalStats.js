@@ -44,7 +44,7 @@ const GlobalStats = () => {
       setGlobalData(globalStats);
       setRegionalData(regionalStats);
     } catch (err) {
-      setError('Failed to fetch global statistics. Using sample data instead.');
+      
       // Fallback to sample data
       setGlobalData(getSampleGlobalData());
       setRegionalData(getSampleRegionalData());
@@ -135,7 +135,11 @@ const GlobalStats = () => {
     <div className="global-stats-container">
       <h2>Global Life Expectancy Statistics</h2>
       
-      
+      {error && (
+        <div className="error-message">
+          {error}
+        </div>
+      )}
 
       <div className="stats-grid">
         <div className="chart-section">
